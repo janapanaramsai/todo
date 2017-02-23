@@ -1,0 +1,52 @@
+<div class="row" ng-controller="TodoCtrl">
+    <div class="col-md-5" ng-show="addFormShow">
+        <h3>Add an Activity</h3>
+        <form ng-submit="addTodo()">
+            <div class="form-group">
+                <label for="activity">Activity</label>
+                <input type="text" class="form-control" id="activity" ng-model="activity" placeholder="add new activity..">
+            </div>
+            <div class="form-group">
+                <label for="notes">Notes</label>
+                <input type="text" class="form-control" id="notes" ng-model="notes" placeholder="add a note..">
+            </div>
+
+            <button type="submit" class="btn btn-default">Submit</button>
+        </form>
+    </div>
+    <div class="col-md-5" ng-show="editFormShow">
+        <h3>Edit Activity</h3>
+        <form ng-submit="editTodo()">
+            <div class="form-group">
+                <label for="activity">Activity</label>
+                <input type="text" class="form-control" id="activity" ng-model="activity" placeholder="add new activity..">
+            </div>
+            <div class="form-group">
+                <label for="notes">Notes</label>
+                <input type="text" class="form-control" id="notes" ng-model="notes" placeholder="add a note..">
+            </div>
+
+            <button type="submit" class="btn btn-default">Submit</button>
+        </form>
+    </div>
+    <div class="col-md-7">
+        <h3>Todo List</h3>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Activity</th>
+                    <th>Notes</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="todo in todos">
+                    <td>{{todo.activity}}</td>
+                    <td>{{todo.notes}}</td>
+                    <td><a class="btn btn-info" ng-click="showEditTodo(todo)" href="">Edit</a></td>
+                    <td><a class="btn btn-danger" ng-click="removeTodo(todo)" href="">Delete</a></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
